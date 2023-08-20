@@ -1,3 +1,4 @@
+import { CardTaskComponent } from './../../../shared/components/card-task/card-task/card-task.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -7,19 +8,28 @@ import { AdminNavbarComponent } from 'src/app/shared/components/admin-navbar/adm
 import { TasksComponent } from './tasks/tasks.component';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import {MatDividerModule} from '@angular/material/divider';
+import { CreateTaskComponent } from './create-task/create-task.component';
 
 
 @NgModule({
   declarations: [
     DashboardComponent,
     AdminNavbarComponent,
-    TasksComponent
+    TasksComponent,
+    CardTaskComponent,
+    CreateTaskComponent
   ],
   imports: [
     CommonModule,
     DashboardRoutingModule,
     MatMenuModule,
-    MatIconModule
+    MatIconModule,
+    MatButtonModule,
+    MatCardModule,
+    MatDividerModule
 
   ]
 })

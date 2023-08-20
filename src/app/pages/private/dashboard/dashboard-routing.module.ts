@@ -1,3 +1,4 @@
+import { CreateTaskComponent } from './create-task/create-task.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -8,7 +9,9 @@ const routes: Routes = [{
   component: DashboardComponent,
   children: [
     { path: "tasks", component: TasksComponent },
+    { path: "create", component: CreateTaskComponent },
     { path: "", redirectTo: "tasks", pathMatch: "full" },
+    { path: "**", redirectTo: "tasks", pathMatch: "full" },
   ],
 }];
 
