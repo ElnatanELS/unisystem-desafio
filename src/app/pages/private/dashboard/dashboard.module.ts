@@ -12,6 +12,9 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatDividerModule} from '@angular/material/divider';
 import { CreateTaskComponent } from './create-task/create-task.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { SnackbarService } from 'src/app/shared/services/snackbar/snackbar.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -29,8 +32,10 @@ import { CreateTaskComponent } from './create-task/create-task.component';
     MatIconModule,
     MatButtonModule,
     MatCardModule,
-    MatDividerModule
+    MatDividerModule,
+    ReactiveFormsModule
 
-  ]
+  ],
+  providers: [SnackbarService, MatSnackBar],
 })
 export class DashboardModule { }

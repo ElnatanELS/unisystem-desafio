@@ -10,6 +10,7 @@ const routes: Routes = [{
   children: [
     { path: "tasks", component: TasksComponent },
     { path: "create", component: CreateTaskComponent },
+    { path: "edit/:id", component: CreateTaskComponent },
     { path: "", redirectTo: "tasks", pathMatch: "full" },
     { path: "**", redirectTo: "tasks", pathMatch: "full" },
   ],

@@ -1,6 +1,6 @@
 import { SnackbarService } from './../../../../shared/services/snackbar/snackbar.service';
 import { User } from './../../../../shared/interfaces/user';
-import { AuthService } from './../../../../core/services/auth.service';
+import { AuthService } from './../../../../core/services/auth/auth.service';
 import { LocalStorageService } from './../../../../shared/services/storage/local-storage.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -22,8 +22,6 @@ export class RegisterComponent implements OnInit {
   constructor(private authService:AuthService, private snackbarService:SnackbarService, private router: Router) {}
 
   save(){
-    console.log("chamou");
-
     const user: User = {
       name: String(this.form.value.name),
       email: String(this.form.value.email),

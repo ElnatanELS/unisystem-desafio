@@ -7,12 +7,12 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 /* Success */
-.snackbar-type-soft-success {
-  @apply bg-green-500;
+.snackbar-type-soft-success .mdc-snackbar__surface {
+  background-color: green !important ;
 }
 
 /* Error */
-.snackbar-type-soft-error {
-  @apply bg-red-600;
+.snackbar-type-soft-error .mdc-snackbar__surface {
+  background-color: red !important;
   @apply text-white;
 }

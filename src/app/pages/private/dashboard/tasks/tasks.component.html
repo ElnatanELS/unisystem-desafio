@@ -1,16 +1,18 @@
 <div >
   <div class="flex justify-between mb-4">
     <h2>Atividades</h2>
-    <button mat-fab matTooltip="Primary" color="primary" aria-label="Example fab with a heart icon">
+    <button mat-fab matTooltip="Primary" color="primary" (click)="redirectToNewTask()">
       <mat-icon>add</mat-icon>
     </button>
   </div>
 
   <div class="grid grid-cols-4 gap-4">
     <ng-container *ngFor="let task of tasks">
-      <app-card-task [task]="task"></app-card-task>
+      <app-card-task [task]="task" (editEvent)="editTask($event)" (removeEvent)="removeTask($event)"></app-card-task>
 
     </ng-container>
   </div>
+
+  <div *ngIf="tasks?.length === 0" class="text-center">Nenhuma Atividade</div>
 
 </div>

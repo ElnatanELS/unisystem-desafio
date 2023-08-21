@@ -1,71 +1,48 @@
+import { TaskService } from './../../../../core/services/task/task.service';
 import { Task } from './../../../../shared/interfaces/task';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { SnackbarService } from 'src/app/shared/services/snackbar/snackbar.service';
 
 @Component({
   templateUrl: './tasks.component.html',
   styleUrls: ['./tasks.component.css'],
 })
-export class TasksComponent {
-  tasks:Task[] = [
-    {
-      id:'1',
-      title: 'TEste',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam viverra, tellus non aliquet egestas, ipsum ipsum feugiat tortor, sed euismod lorem lectus eget nisl. Sed diam mauris, laoreet a vulputate non, iaculis id massa. Donec at tortor nec elit porta scelerisque. Nam enim magna, hendrerit eget orci ut, dignissim suscipit risus. Etiam consectetur urna libero, id volutpat augue vulputate et. Duis laoreet venenatis augue, varius condimentum ante efficitur a. Integer id auctor orci. Etiam eu vehicula erat. Etiam sed convallis ligula.',
-    },
-    {
-      id:'1',
-      title: 'TEste',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam viverra, tellus non aliquet egestas, ipsum ipsum feugiat tortor, sed euismod lorem lectus eget nisl. Sed diam mauris, laoreet a vulputate non, iaculis id massa. Donec at tortor nec elit porta scelerisque. Nam enim magna, hendrerit eget orci ut, dignissim suscipit risus. Etiam consectetur urna libero, id volutpat augue vulputate et. Duis laoreet venenatis augue, varius condimentum ante efficitur a. Integer id auctor orci. Etiam eu vehicula erat. Etiam sed convallis ligula.',
-    },
-    {
-      id:'1',
-      title: 'TEste',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam viverra, tellus non aliquet egestas, ipsum ipsum feugiat tortor, sed euismod lorem lectus eget nisl. Sed diam mauris, laoreet a vulputate non, iaculis id massa. Donec at tortor nec elit porta scelerisque. Nam enim magna, hendrerit eget orci ut, dignissim suscipit risus. Etiam consectetur urna libero, id volutpat augue vulputate et. Duis laoreet venenatis augue, varius condimentum ante efficitur a. Integer id auctor orci. Etiam eu vehicula erat. Etiam sed convallis ligula.',
-    },
-    {
-      id:'1',
-      title: 'TEste',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam viverra, tellus non aliquet egestas, ipsum ipsum feugiat tortor, sed euismod lorem lectus eget nisl. Sed diam mauris, laoreet a vulputate non, iaculis id massa. Donec at tortor nec elit porta scelerisque. Nam enim magna, hendrerit eget orci ut, dignissim suscipit risus. Etiam consectetur urna libero, id volutpat augue vulputate et. Duis laoreet venenatis augue, varius condimentum ante efficitur a. Integer id auctor orci. Etiam eu vehicula erat. Etiam sed convallis ligula.',
-    },
-    {
-      id:'1',
-      title: 'TEste',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam viverra, tellus non aliquet egestas, ipsum ipsum feugiat tortor, sed euismod lorem lectus eget nisl. Sed diam mauris, laoreet a vulputate non, iaculis id massa. Donec at tortor nec elit porta scelerisque. Nam enim magna, hendrerit eget orci ut, dignissim suscipit risus. Etiam consectetur urna libero, id volutpat augue vulputate et. Duis laoreet venenatis augue, varius condimentum ante efficitur a. Integer id auctor orci. Etiam eu vehicula erat. Etiam sed convallis ligula.',
-    },
-    {
-      id:'1',
-      title: 'TEste',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam viverra, tellus non aliquet egestas, ipsum ipsum feugiat tortor, sed euismod lorem lectus eget nisl. Sed diam mauris, laoreet a vulputate non, iaculis id massa. Donec at tortor nec elit porta scelerisque. Nam enim magna, hendrerit eget orci ut, dignissim suscipit risus. Etiam consectetur urna libero, id volutpat augue vulputate et. Duis laoreet venenatis augue, varius condimentum ante efficitur a. Integer id auctor orci. Etiam eu vehicula erat. Etiam sed convallis ligula.',
-    },
-    {
-      id:'1',
-      title: 'TEste',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam viverra, tellus non aliquet egestas, ipsum ipsum feugiat tortor, sed euismod lorem lectus eget nisl. Sed diam mauris, laoreet a vulputate non, iaculis id massa. Donec at tortor nec elit porta scelerisque. Nam enim magna, hendrerit eget orci ut, dignissim suscipit risus. Etiam consectetur urna libero, id volutpat augue vulputate et. Duis laoreet venenatis augue, varius condimentum ante efficitur a. Integer id auctor orci. Etiam eu vehicula erat. Etiam sed convallis ligula.',
-    },
-    {
-      id:'1',
-      title: 'TEste',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam viverra, tellus non aliquet egestas, ipsum ipsum feugiat tortor, sed euismod lorem lectus eget nisl. Sed diam mauris, laoreet a vulputate non, iaculis id massa. Donec at tortor nec elit porta scelerisque. Nam enim magna, hendrerit eget orci ut, dignissim suscipit risus. Etiam consectetur urna libero, id volutpat augue vulputate et. Duis laoreet venenatis augue, varius condimentum ante efficitur a. Integer id auctor orci. Etiam eu vehicula erat. Etiam sed convallis ligula.',
-    },
-    {
-      id:'1',
-      title: 'TEste',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam viverra, tellus non aliquet egestas, ipsum ipsum feugiat tortor, sed euismod lorem lectus eget nisl. Sed diam mauris, laoreet a vulputate non, iaculis id massa. Donec at tortor nec elit porta scelerisque. Nam enim magna, hendrerit eget orci ut, dignissim suscipit risus. Etiam consectetur urna libero, id volutpat augue vulputate et. Duis laoreet venenatis augue, varius condimentum ante efficitur a. Integer id auctor orci. Etiam eu vehicula erat. Etiam sed convallis ligula.',
-    },
-    {
-      id:'1',
-      title: 'TEste',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam viverra, tellus non aliquet egestas, ipsum ipsum feugiat tortor, sed euismod lorem lectus eget nisl. Sed diam mauris, laoreet a vulputate non, iaculis id massa. Donec at tortor nec elit porta scelerisque. Nam enim magna, hendrerit eget orci ut, dignissim suscipit risus. Etiam consectetur urna libero, id volutpat augue vulputate et. Duis laoreet venenatis augue, varius condimentum ante efficitur a. Integer id auctor orci. Etiam eu vehicula erat. Etiam sed convallis ligula.',
-    },
-  ];
+export class TasksComponent implements OnInit {
+  tasks: Task[] = [];
+  constructor(
+    private taskService: TaskService,
+    private snackbarService: SnackbarService,
+    private router: Router
+  ) {}
+  ngOnInit(): void {
+   this.getTaks()
+  }
+
+  redirectToNewTask() {
+    this.router.navigateByUrl('/dashboard/create');
+  }
+
+  editTask(event: any) {
+    this.router.navigateByUrl('/dashboard/edit/' + event);
+  }
+
+  removeTask(event: any) {
+    const id = this.tasks.findIndex((task) => {
+     return task.id === event
+    })
+
+    this.tasks.splice(id, 1);
+    this.taskService.createTask(this.tasks).subscribe((res) => {
+      this.getTaks()
+      this.snackbarService.openSnackBar('Atividade Removida', 'success');
+      this.router.navigateByUrl('dashboard/tasks');
+    });
+  }
+
+  getTaks(){
+    this.taskService.getTasks().subscribe((res) => {
+      this.tasks = res == null ? [] : res;
+    });
+  }
 }
