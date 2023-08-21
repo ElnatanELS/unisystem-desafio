@@ -5,3 +5,14 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Success */
+.snackbar-type-soft-success {
+  @apply bg-green-500;
+}
+
+/* Error */
+.snackbar-type-soft-error {
+  @apply bg-red-600;
+  @apply text-white;
+}

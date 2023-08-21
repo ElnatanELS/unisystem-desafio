@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { LocalStorage } from '../../enums/localStorage.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class LocalStorageService {
     this.storage = window.localStorage;
   }
 
-  set(key: string, value: any): boolean {
+  set(key: LocalStorage, value: any): boolean {
     if (this.storage) {
       this.storage.setItem(key, JSON.stringify(value));
       return true;
